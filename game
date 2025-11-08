@@ -1,0 +1,11 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
+class Game {
+public:
+    void initialize();
+    void update();
+    void render();
+};
+
+#endif // GAME_HPP
