@@ -1,0 +1,32 @@
+#include <iostream>
+#include "engine/Renderer.hpp"
+#include "engine/Input.hpp"
+#include "engine/Audio.hpp"
+#include "game/Game.hpp"
+
+int main() {
+    // Initialize the game engine
+    Renderer renderer;
+    Input input;
+    Audio audio;
+    Game game;
+
+    if (!renderer.init() || !input.init() || !audio.init() || !game.initialize()) {
+        std::cerr << "Failed to initialize the game engine!" << std::endl;
+        return -1;
+    }
+
+    // Main game loop
+    while (game.isRunning()) {
+        input.processInput();
+        game.update();
+        renderer.render();
+    }
+
+    // Cleanup resources
+    game.cleanup();
+    renderer.cleanup();
+    audio.cleanup();
+
+    return 0;
+}
