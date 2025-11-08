@@ -1,0 +1,17 @@
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
+
+class Player {
+public:
+    Player();
+    void move(float deltaX, float deltaY);
+    void jump();
+    void attack();
+    
+private:
+    float positionX;
+    float positionY;
+    bool isJumping;
+};
+
+#endif // PLAYER_HPP
