@@ -1,0 +1,29 @@
+#include <gtest/gtest.h>
+
+// Sample test case for the Player class
+TEST(PlayerTest, MoveTest) {
+    Player player;
+    player.move(5, 0);
+    EXPECT_EQ(player.getPosition().x, 5);
+    EXPECT_EQ(player.getPosition().y, 0);
+}
+
+// Sample test case for the Game class
+TEST(GameTest, InitializationTest) {
+    Game game;
+    EXPECT_TRUE(game.initialize());
+}
+
+// Sample test case for the Renderer class
+TEST(RendererTest, RenderTest) {
+    Renderer renderer;
+    renderer.init();
+    EXPECT_NO_THROW(renderer.render());
+    renderer.cleanup();
+}
+
+// Main function for running the tests
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
